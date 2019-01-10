@@ -1,3 +1,5 @@
+import 'package:company_profile/repo/repo.dart';
+import 'package:company_profile/ui/company_details_page.dart';
 import 'package:flutter/material.dart';
 
 class CompanyDetailsAnimator extends StatefulWidget {
@@ -13,13 +15,10 @@ class _CompanyDetailsAnimatorState extends State<CompanyDetailsAnimator>
   void initState() {
     super.initState();
     _controller = AnimationController(
-      duration: Duration(milliseconds: 1780),
-      vsync: this);
+        duration: Duration(milliseconds: 1780), vsync: this);
 
-      _controller.forward();
+    _controller.forward();
   }
-
-
 
   @override
   void dispose() {
@@ -29,10 +28,9 @@ class _CompanyDetailsAnimatorState extends State<CompanyDetailsAnimator>
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Center(
-        child: Text("Hello World"),
-      ),
+    return CompanyDetailsPage(
+      company: RepoData.owilliamnet,
+      controller: _controller,
     );
   }
 }
